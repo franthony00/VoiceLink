@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VoiceLink — La plataforma líder que conecta locutores profesionales con clientes. Encuentra la voz perfecta para tu proyecto.">
+    <meta name="keywords" content="locutores, voice over, voces profesionales, contratación locutores, plataforma locución">
+    <meta name="author" content="VoiceLink">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="VoiceLink — Connecting Voices to Opportunities">
+    <meta property="og:description" content="Conectamos locutores profesionales con clientes que buscan la voz perfecta para sus proyectos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://voicelink.com">
+    <meta property="og:image" content="https://voicelink.com/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VoiceLink — Connecting Voices to Opportunities">
+    <meta name="twitter:description" content="Conectamos locutores profesionales con clientes que buscan la voz perfecta.">
+    
+    <title>VoiceLink — Connecting Voices to Opportunities</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "VoiceLink",
+      "description": "Plataforma que conecta locutores profesionales con clientes",
+      "url": "https://voicelink.com",
+      "logo": "https://voicelink.com/logo.png",
+      "sameAs": [
+        "https://twitter.com/voicelink",
+        "https://linkedin.com/company/voicelink"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "email": "hola@voicelink.com"
+      }
+    }
+    </script>
+    
+    <style>
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-dark: #0a0a0f;
+            --color-dark-secondary: #14141f;
+            --color-dark-tertiary: #1e1e2e;
+            --color-gold: #d4af37;
+            --color-gold-light: #f4d03f;
+            --color-gold-dark: #b8941f;
+            --color-blue: #3b82f6;
+            --color-blue-light: #60a5fa;
+            --color-gray: #a0a0ab;
+            --color-gray-light: #e5e5ea;
+            --color-white: #ffffff;
+            
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            background: var(--color-dark);
+            color: var(--color-gray-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* === TYPOGRAPHY === */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            color: var(--color-white);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        
+        p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--color-gray);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        /* === UTILITIES === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            padding: 6rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-gray);
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            font-size: 1.25rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+            color: var(--color-dark);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border-color: var(--color-gold);
+            color: var(--color-gold);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-gold);
+            color: var(--color-dark);
+        }
+        
+        /* === HEADER === */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            font-family: var(--font-display);
+            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--color-gray-light);
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-gold);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-gold);
+            transition: var(--transition);
+        }
+        
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            background: 
+                radial-gradient(ellipse at top, rgba(212, 175, 55, 0.1), transparent),
+                radial-gradient(ellipse at bottom, rgba(59, 130, 246, 0.1), transparent),
+                var(--color-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent);
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent);
+            bottom: -200px;
+            left: -200px;
+            border-radius: 50%;
+            animation: pulse 6s ease-in-out infinite reverse;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+        
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            text-shadow: 0 5px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* === GRID LAYOUTS === */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        /* === CARD === */
+        .card {
+            background: var(--color-dark-secondary);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-gold), var(--color-blue));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-gold);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.15);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--color-gold-light);
+        }
+        
+        /* === PROBLEM SECTION === */
+        .problem-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .problem-highlight {
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--color-gray);
+            font-weight: 500;
+        }
+        
+        /* === SOLUTION === */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+        
+        /* === VALUES === */
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-item {
+            background: var(--color-dark-tertiary);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--color-gold);
+        }
+        
+        .value-item h3 {
+            color: var(--color-gold);
+            margin-bottom: 0.75rem;
+        }
+        
+        /* === HOW IT WORKS === */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-dark);
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .step h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* === VIDEO MODAL === */
+        .video-placeholder {
+            background: var(--color-dark-secondary);
+            border: 2px dashed var(--color-gold);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .video-placeholder:hover {
+            background: var(--color-dark-tertiary);
+            border-color: var(--color-gold-light);
+        }
+        
+        .play-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--color-dark-secondary);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--color-gold);
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .modal-close:hover {
+            background: var(--color-gold);
+            color: var(--color-dark);
+        }
+        
+        .video-structure {
+            margin-top: 2rem;
+        }
+        
+        .video-section {
+            padding: 1.5rem;
+            background: var(--color-dark-tertiary);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--color-gold);
+        }
+        
+        .video-section h4 {
+            color: var(--color-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-timestamp {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* === LIVE PRESENTATION === */
+        .presentation-steps {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .presentation-step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 2rem;
+            background: var(--color-dark-secondary);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: var(--transition);
+        }
+        
+        .presentation-step:hover {
+            border-color: var(--color-gold);
+            transform: translateX(5px);
+        }
+        
+        .step-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--color-dark);
+        }
+        
+        .step-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--color-gold-light);
+        }
+        
+        .step-content p {
+            font-size: 1rem;
+        }
+        
+        .download-script {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        /* === PRICING === */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .pricing-card {
+            background: var(--color-dark-secondary);
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--color-gold);
+            transform: scale(1.05);
+            box-shadow: 0 10px 50px rgba(212, 175, 55, 0.2);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--color-gold);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark));
+            color: var(--color-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        
+        .pricing-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+        
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-period {
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .pricing-features li:before {
+            content: '✓';
+            color: var(--color-gold);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+        
+        /* === TESTIMONIALS === */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .testimonial {
+            background: var(--color-dark-secondary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--color-gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-gold), var(--color-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--color-dark);
+        }
+        
+        .testimonial-info h4 {
+            color: var(--color-white);
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-info p {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+        }
+        
+        /* === FAQ === */
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .faq-item {
+            background: var(--color-dark-secondary);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: var(--color-dark-tertiary);
+        }
+        
+        .faq-question h4 {
+            color: var(--color-gold-light);
+            font-size: 1.125rem;
+        }
+        
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* === CONTACT === */
+        .contact-container {
+            max-width: 600px;
+            margin: 3rem auto 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-gold);
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--color-dark-secondary);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            color: var(--color-white);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .form-error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .form-group.error .form-error {
+            display: block;
+        }
+        
+        .form-group.error input,
+        .form-group.error textarea,
+        .form-group.error select {
+            border-color: #ef4444;
+        }
+        
+        .form-success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            color: #22c55e;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        
+        .form-success.show {
+            display: block;
+        }
+        
+        /* === FOOTER === */
+        .footer {
+            background: var(--color-dark-secondary);
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--color-gray);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-gold);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--color-dark-tertiary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--color-gold);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--color-gray);
+        }
+        
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 10, 15, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 2rem;
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-toggle {
+                display: flex;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+        
+        /* === ACCESSIBILITY === */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        :focus-visible {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <nav class="nav" role="navigation" aria-label="Navegación principal">
+            <a href="#home" class="logo" aria-label="VoiceLink - Inicio">VoiceLink</a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#problema" class="nav-link">Mercado</a></li>
+                <li><a href="#solucion" class="nav-link">Solución</a></li>
+                <li><a href="#valores" class="nav-link">Valores</a></li>
+                <li><a href="#como-funciona" class="nav-link">Cómo Funciona</a></li>
+                <li><a href="#precios" class="nav-link">Precios</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="#registro" class="btn btn-primary">Comenzar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <svg class="hero-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 1C12 1 8 5 8 9C8 11.2091 9.79086 13 12 13C14.2091 13 16 11.2091 16 9C16 5 12 1 12 1Z" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5 10V11C5 14.866 8.13401 18 12 18C15.866 18 19 14.866 19 11V10" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 18V23" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 23H16" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            
+            <p class="hero-tagline">VoiceLink</p>
+            <h1>Connecting Voices to Opportunities</h1>
+            <p>La plataforma líder que une a locutores profesionales con clientes que buscan la voz perfecta para sus proyectos. Transformamos ideas en voces memorables.</p>
+            
+            <div class="hero-buttons">
+                <a href="#registro" class="btn btn-primary">Comenzar Ahora</a>
+                <a href="#como-funciona" class="btn btn-secondary">Ver Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMA Y MERCADO -->
+    <section class="section" id="problema">
+        <div class="container">
+            <h2 class="section-title">El Desafío del Mercado</h2>
+            <p class="section-subtitle">Una industria fragmentada que necesita conexión</p>
+            
+            <div class="problem-content">
+                <p class="problem-highlight">"¿Cómo encuentro el locutor perfecto sin perder semanas buscando?"</p>
+                
+                <p>El mercado de la locución está creciendo exponencialmente, pero sigue siendo un laberinto para quienes buscan talento. Los clientes pierden tiempo valioso navegando por plataformas genéricas, mientras que locutores profesionales luchan por ser descubiertos en medio del ruido.</p>
+                
+                <p style="margin-top: 1.5rem;">La falta de un espacio especializado genera frustración, pérdidas económicas y proyectos que nunca alcanzan su verdadero potencial. <strong style="color: var(--color-gold);">Es momento de cambiar eso.</strong></p>
+            </div>
+            
+            <div class="stat-grid">
+                <div class="stat">
+                    <span class="stat-number">$5.4B</span>
+                    <span class="stat-label">Mercado global de locución 2024</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">73%</span>
+                    <span class="stat-label">Empresas usando voice-over</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">45%</span>
+                    <span class="stat-label">Crecimiento proyectado 5 años</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUCIÓN & USP -->
+    <section class="section" id="solucion">
+        <div class="container">
+            <h2 class="section-title">Nuestra Solución</h2>
+            <p class="section-subtitle">La primera plataforma 100% enfocada en locución profesional</p>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h3>Filtros Inteligentes</h3>
+                    <p>Encuentra exactamente lo que buscas: idioma, acento, tono, género, experiencia. Nuestro sistema de búsqueda avanzada te conecta con el locutor perfecto en minutos.</p>
+                </div>
+                
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 9V15M15 9V15M9 9C9 7.34315 7.65685 6 6 6C4.34315 6 3 7.34315 3 9V15C3 16.6569 4.34315 18 6 18C7.65685 18 9 16.6569 9 15M15 9C15 7.34315 16.3431 6 18 6C19.6569 6 21 7.34315 21 9V15C21 16.6569 19.6569 18 18 18C16.3431 18 15 16.6569 15 15" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h3>Demos Profesionales</h3>
+                    <p>Cada locutor comparte su mejor trabajo. Escucha portafolios completos antes de decidir, con grabaciones categorizadas por estilo y proyecto.</p>
+                </div>
+                
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>Perfiles Verificados</h3>
+                    <p>Todos los locutores pasan por un proceso de verificación. Trabaja solo con profesionales certificados con historial comprobado.</p>
+                </div>
+                
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>Pagos Seguros</h3>
+                    <p>Sistema de pagos protegido con garantía de calidad. Los fondos se liberan solo cuando el trabajo cumple tus expectativas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISIÓN, VISIÓN Y VALORES -->
+    <section class="section" id="valores" style="background: var(--color-dark-secondary);">
+        <div class="container">
+            <h2 class="section-title">Nuestra Esencia</h2>
+            <p class="section-subtitle">Los principios que nos guían cada día</p>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <h3 style="color: var(--color-gold); margin-bottom: 1rem;">🎯 Misión</h3>
+                    <p>Democratizar el acceso al talento de locución profesional, creando un ecosistema donde cada voz encuentre su proyecto ideal y cada proyecto encuentre su voz perfecta.</p>
+                </div>
+                
+                <div class="card">
+                    <h3 style="color: var(--color-gold); margin-bottom: 1rem;">🔮 Visión</h3>
+                    <p>Ser la plataforma global líder en conexión de talento de locución, reconocida por transformar la industria y elevar los estándares de calidad profesional.</p>
+                </div>
+                
+                <div class="card">
+                    <h3 style="color: var(--color-gold); margin-bottom: 1rem;">💎 Valores</h3>
+                    <p>Calidad, transparencia, innovación y respeto. Creemos en relaciones justas, pagos dignos y en celebrar la diversidad de voces que hacen único a cada proyecto.</p>
+                </div>
+            </div>
+            
+            <div class="values-list">
+                <div class="value-item">
+                    <h3>Excelencia</h3>
+                    <p>Solo trabajamos con locutores que demuestran compromiso con la calidad y profesionalismo en cada proyecto.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h3>Transparencia</h3>
+                    <p>Precios claros, procesos transparentes y comunicación honesta en cada interacción.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h3>Comunidad</h3>
+                    <p>Construimos más que una plataforma: creamos una comunidad donde locutores y clientes crecen juntos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METAS -->
+    <section class="section" id="metas">
+        <div class="container">
+            <h2 class="section-title">Nuestras Metas 2025</h2>
+            <p class="section-subtitle">Comprometidos con el crecimiento y la excelencia</p>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>10,000+ Locutores Activos</h3>
+                    <p>Expandir nuestra red a más de 10,000 locutores profesionales verificados en 50+ idiomas, creando el directorio más completo de la industria.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>50,000 Proyectos Completados</h3>
+                    <p>Facilitar más de 50,000 proyectos exitosos, desde podcasts hasta campañas publicitarias globales, con tasa de satisfacción superior al 95%.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Expansión Global</h3>
+                    <p>Presencia activa en 80+ países, con soporte en 15 idiomas y pasarelas de pago localizadas para cada región.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>IA de Matching Avanzada</h3>
+                    <p>Implementar inteligencia artificial que analice estilos de voz y recomiende el match perfecto en segundos, ahorrando tiempo y mejorando resultados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="section" id="como-funciona" style="background: var(--color-dark-secondary);">
+        <div class="container">
+            <h2 class="section-title">Cómo Funciona</h2>
+            <p class="section-subtitle">Cuatro pasos simples para conectar con el talento perfecto</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Crea tu Perfil</h3>
+                    <p>Regístrate gratis como cliente o locutor. Completa tu perfil con información relevante y preferencias para obtener mejores matches.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Busca o Publica</h3>
+                    <p>Clientes: publica tu proyecto con detalles específicos. Locutores: explora oportunidades que se ajusten a tu estilo y experiencia.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Conecta y Negocia</h3>
+                    <p>Revisa perfiles, escucha demos, y conecta directamente. Negocia términos, plazos y presupuesto en un ambiente seguro.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Trabaja y Paga</h3>
+                    <p>El locutor entrega el trabajo. Una vez aprobado, el pago se libera automáticamente. Deja tu reseña y construye reputación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMO/VIDEO -->
+    <section class="section" id="demo">
+        <div class="container">
+            <h2 class="section-title">Ve VoiceLink en Acción</h2>
+            <p class="section-subtitle">Descubre cómo transformamos la conexión entre voces y proyectos</p>
+            
+            <div class="video-placeholder" id="videoPlaceholder" role="button" tabindex="0" aria-label="Reproducir video de demostración">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#d4af37" stroke-width="2"/>
+                    <path d="M10 8L16 12L10 16V8Z" fill="#d4af37"/>
+                </svg>
+                <h3 style="color: var(--color-gold); margin-bottom: 0.5rem;">Demo Completa de la Plataforma</h3>
+                <p>Haz clic para ver cómo funciona VoiceLink paso a paso (2-3 min)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO MODAL -->
+    <div class="modal" id="videoModal" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Cerrar modal">×</button>
+            <h2 id="modalTitle">Estructura del Video Demo</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-gray);">Recorrido completo por las funcionalidades de VoiceLink</p>
+            
+            <div class="video-structure">
+                <div class="video-section">
+                    <span class="video-timestamp">0:00 - 0:30</span>
+                    <h4>Introducción</h4>
+                    <p>Presentación de VoiceLink y el problema que resolvemos en el mercado de locución profesional.</p>
+                </div>
+                
+                <div class="video-section">
+                    <span class="video-timestamp">0:30 - 1:00</span>
+                    <h4>Navegación del Dashboard</h4>
+                    <p>Tour por la interfaz: cómo buscar locutores, filtros avanzados, visualización de perfiles y portfolios de audio.</p>
+                </div>
+                
+                <div class="video-section">
+                    <span class="video-timestamp">1:00 - 1:30</span>
+                    <h4>Proceso de Contratación</h4>
+                    <p>Demostración paso a paso: desde la selección del locutor hasta la negociación de términos y firma de acuerdos.</p>
+                </div>
+                
+                <div class="video-section">
+                    <span class="video-timestamp">1:30 - 2:00</span>
+                    <h4>Gestión de Proyectos</h4>
+                    <p>Sistema de entrega, revisión de archivos, solicitud de cambios, aprobación final y liberación de pagos.</p>
+                </div>
+                
+                <div class="video-section">
+                    <span class="video-timestamp">2:00 - 2:30</span>
+                    <h4>Características Premium</h4>
+                    <p>Herramientas exclusivas: análisis de audio, recomendaciones personalizadas por IA, y soporte prioritario.</p>
+                </div>
+                
+                <div class="video-section">
+                    <span class="video-timestamp">2:30 - 3:00</span>
+                    <h4>Casos de Éxito y Cierre</h4>
+                    <p>Testimonios reales de usuarios, estadísticas de satisfacción y llamado a la acción para comenzar gratis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRESENTACIÓN EN VIVO -->
+    <section class="section" id="presentacion" style="background: var(--color-dark-secondary);">
+        <div class="container">
+            <h2 class="section-title">Guía de Presentación en Vivo</h2>
+            <p class="section-subtitle">7 pasos para una demostración impactante de VoiceLink</p>
+            
+            <div class="presentation-steps">
+                <div class="presentation-step">
+                    <div class="step-icon">1</div>
+                    <div class="step-content">
+                        <h4>Apertura Impactante</h4>
+                        <p>Comienza con una estadística o historia real del mercado. Ejemplo: "¿Sabían que el 68% de las empresas pierde más de 2 semanas buscando el locutor correcto?"</p>
+                    </div>
+                </div>
+                
+                <div class="presentation-step">
+                    <div class="step-icon">2</div>
+                    <div class="step-content">
+                        <h4>El Problema en Profundidad</h4>
+                        <p>Describe el dolor del mercado con empatía. Usa casos reales de clientes frustrados y locutores subutilizados. Haz que la audiencia sienta el problema.</p>
+                    </div>
+                </div>
+                
+                <div class="presentation-step">
+                    <div class="step-icon">3</div>
+                    <div class="step-content">
+                        <h4>La Solución VoiceLink</h4>
+                        <p>Presenta la plataforma como la respuesta obvia. Enfatiza el enfoque 100% especializado en locución y los beneficios únicos que ofrecemos.</p>
+                    </div>
+                </div>
+                
+                <div class="presentation-step">
+                    <div class="step-icon">4</div>
+                    <div class="step-content">
+                        <h4>Demo en Vivo de la Plataforma</h4>
+                        <p>Muestra la interfaz real: realiza una búsqueda, escucha un demo, simula una contratación. Deja que la plataforma hable por sí misma.</p>
+                    </div>
+                </div>
+                
+                <div class="presentation-step">
+                    <div class="step-icon">5</div>
+                    <div class="step-content">
+                        <h4>Casos de Éxito y Testimonios</h4>
+                        <p>Comparte 2-3 historias de usuarios reales. Muestra métricas concretas: tiempo ahorrado, satisfacción, proyectos completados exitosamente.</p>
+                    </div>
+                </div>
+                
+                <div class="presentation-step">
+                    <div class="step-icon">6</div>
+                    <div class="step-content">
+                        <h4>Roadmap y Visión</h4>
+                        <p>Presenta nuestras metas y hacia dónde va VoiceLink. Genera entusiasmo sobre el futuro de la plataforma y la industria.</p>
+                    </div>
+                </div>
+                
+                <div class="presentation-step">
+                    <div class="step-icon">7</div>
+                    <div class="step-content">
+                        <h4>Llamado a la Acción</h4>
+                        <p>Cierra con invitación clara: "Únete a la revolución de la locución. Regístrate hoy gratis y consigue tu primer proyecto en 48 horas". Abre espacio para preguntas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="download-script">
+                <button class="btn btn-primary" id="downloadScript">📥 Descargar Guion Completo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section class="section" id="precios">
+        <div class="container">
+            <h2 class="section-title">Planes y Precios</h2>
+            <p class="section-subtitle">Elige el plan perfecto para tus necesidades</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Básico</h3>
+                    <div class="pricing-price">$0</div>
+                    <div class="pricing-period">por mes</div>
+                    <ul class="pricing-features">
+                        <li>Perfil de locutor o cliente</li>
+                        <li>Acceso a búsqueda básica</li>
+                        <li>3 propuestas mensuales</li>
+                        <li>Comisión 20% por proyecto</li>
+                        <li>Soporte por email</li>
+                    </ul>
+                    <a href="#registro" class="btn btn-secondary" style="width: 100%;">Comenzar Gratis</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">MÁS POPULAR</div>
+                    <h3>Profesional</h3>
+                    <div class="pricing-price">$29</div>
+                    <div class="pricing-period">por mes</div>
+                    <ul class="pricing-features">
+                        <li>Todo en Básico</li>
+                        <li>Propuestas ilimitadas</li>
+                        <li>Filtros avanzados con IA</li>
+                        <li>Comisión reducida 12%</li>
+                        <li>Badge de perfil verificado</li>
+                        <li>Análisis de rendimiento</li>
+                        <li>Soporte prioritario 24/7</li>
+                    </ul>
+                    <a href="#registro" class="btn btn-primary" style="width: 100%;">Elegir Profesional</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Empresarial</h3>
+                    <div class="pricing-price">$99</div>
+                    <div class="pricing-period">por mes</div>
+                    <ul class="pricing-features">
+                        <li>Todo en Profesional</li>
+                        <li>Múltiples usuarios</li>
+                        <li>Gestor de cuenta dedicado</li>
+                        <li>Comisión mínima 8%</li>
+                        <li>Contratos personalizados</li>
+                        <li>Facturación empresarial</li>
+                        <li>API de integración</li>
+                        <li>Reportes personalizados</li>
+                    </ul>
+                    <a href="#registro" class="btn btn-secondary" style="width: 100%;">Contactar Ventas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="section" id="testimonios" style="background: var(--color-dark-secondary);">
+        <div class="container">
+            <h2 class="section-title">Lo Que Dicen Nuestros Usuarios</h2>
+            <p class="section-subtitle">Historias reales de éxito y transformación</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">VoiceLink cambió mi vida. En 6 meses pasé de buscar trabajo en múltiples plataformas a tener una agenda llena de proyectos recurrentes. La calidad de los clientes es excepcional.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MC</div>
+                        <div class="testimonial-info">
+                            <h4>María Contreras</h4>
+                            <p>Locutora Profesional - España</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Antes perdíamos semanas encontrando la voz correcta para nuestras campañas. Con VoiceLink, encontramos 3 opciones perfectas en menos de 2 horas. Increíble.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JR</div>
+                        <div class="testimonial-info">
+                            <h4>Jorge Ramírez</h4>
+                            <p>Director Creativo - México</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">El sistema de pagos seguros y la calidad de los perfiles verificados nos dio la confianza para hacer de VoiceLink nuestra única plataforma de contratación de locutores.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AS</div>
+                        <div class="testimonial-info">
+                            <h4>Ana Silva</h4>
+                            <p>Productora de Podcast - Argentina</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <p class="section-subtitle">Resolvemos tus dudas sobre VoiceLink</p>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        <h4>¿Cómo funciona el proceso de verificación de locutores?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Cada locutor debe completar un proceso de verificación que incluye: validación de identidad, revisión de portafolio profesional, prueba de calidad de audio, y referencias verificables. Solo aprobamos el 30% de las solicitudes para mantener estándares de excelencia.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        <h4>¿Qué comisiones cobra VoiceLink?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Plan Básico: 20% por proyecto. Plan Profesional: 12%. Plan Empresarial: 8%. La comisión cubre procesamiento de pagos seguros, soporte, infraestructura de la plataforma y protección contra fraudes. Sin costos ocultos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        <h4>¿Cómo garantizan la calidad del trabajo?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Implementamos un sistema de depósito en garantía: el pago del cliente se retiene hasta que apruebe el trabajo final. Los locutores pueden hacer revisiones incluidas en el precio acordado. Además, nuestro sistema de reseñas mantiene alta la reputación de todos los usuarios.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        <h4>¿Puedo cancelar mi suscripción en cualquier momento?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Sí, puedes cancelar tu plan Profesional o Empresarial en cualquier momento sin penalizaciones. Si cancelas, mantendrás acceso a las funciones premium hasta el final del período facturado. También puedes cambiar entre planes cuando lo necesites.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        <h4>¿Qué métodos de pago aceptan?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Aceptamos todas las tarjetas de crédito/débito principales, PayPal, transferencias bancarias y billeteras digitales populares. Los pagos internacionales se procesan en tu moneda local. Todos los pagos están protegidos con encriptación bancaria de nivel empresarial.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        <h4>¿Ofrecen soporte en mi idioma?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Actualmente ofrecemos soporte completo en español, inglés y portugués. Estamos expandiendo a 15 idiomas adicionales durante 2025. Nuestro equipo de soporte está disponible 24/7 para usuarios Premium y Empresariales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section" id="contacto" style="background: var(--color-dark-secondary);">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <p class="section-subtitle">¿Tienes preguntas? Estamos aquí para ayudarte</p>
+            
+            <div class="contact-container">
+                <div class="form-success" id="formSuccess">
+                    <strong>¡Mensaje enviado!</strong> Nos pondremos en contacto contigo en menos de 24 horas.
+                </div>
+                
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required aria-required="true">
+                        <span class="form-error">Por favor ingresa tu nombre completo</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                        <span class="form-error">Por favor ingresa un email válido</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tipo">Soy... *</label>
+                        <select id="tipo" name="tipo" required aria-required="true">
+                            <option value="">Selecciona una opción</option>
+                            <option value="cliente">Cliente buscando locutor</option>
+                            <option value="locutor">Locutor profesional</option>
+                            <option value="agencia">Agencia/Empresa</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <span class="form-error">Por favor selecciona una opción</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" required aria-required="true"></textarea>
+                        <span class="form-error">Por favor escribe tu mensaje (mínimo 10 caracteres)</span>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>VoiceLink</h3>
+                    <p style="color: var(--color-gray); margin-bottom: 1rem;">Conectando voces profesionales con oportunidades extraordinarias desde 2024.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="4" cy="4" r="2" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Plataforma</h3>
+                    <ul class="footer-links">
+                        <li><a href="#solucion">Características</a></li>
+                        <li><a href="#precios">Precios</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="#">API Docs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Política de Cookies</a></li>
+                        <li><a href="#">Código de Conducta</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 VoiceLink. Todos los derechos reservados. Hecho con ❤️ para la comunidad de locutores.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ========== NAVIGATION ==========
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const header = document.getElementById('header');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const isExpanded = navMenu.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // ========== INTERSECTION OBSERVER ==========
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // ========== VIDEO MODAL ==========
+        const videoPlaceholder = document.getElementById('videoPlaceholder');
+        const videoModal = document.getElementById('videoModal');
+        const modalClose = document.getElementById('modalClose');
+        
+        function openModal() {
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            videoModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        videoPlaceholder.addEventListener('click', openModal);
+        videoPlaceholder.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openModal();
+            }
+        });
+        
+        modalClose.addEventListener('click', closeModal);
+        
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeModal();
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
+        // ========== DOWNLOAD SCRIPT ==========
+        const downloadScript = document.getElementById('downloadScript');
+        
+        downloadScript.addEventListener('click', () => {
+            const scriptContent = `GUION DE PRESENTACIÓN EN VIVO - VOICELINK
+=============================================
+
+PASO 1: APERTURA IMPACTANTE (2 minutos)
+-----------------------------------------
+"Buenos días/tardes a todos. Quiero comenzar con una pregunta:
+¿Alguna vez han necesitado contratar un locutor profesional?
+
+Si lo han hecho, probablemente experimentaron esto:
+- Pasaron días o semanas navegando por plataformas genéricas
+- Escucharon docenas de demos que no encajaban
+- Se preguntaron si ese locutor realmente era profesional
+- Negociaron en plataformas sin protección
+- Y al final, no quedaron 100% satisfechos
+
+El 68% de las empresas pierde más de 2 semanas en este proceso.
+Eso son 80 horas de trabajo perdidas. Miles de dólares en tiempo.
+
+Hoy les presentamos la solución a este problema."
+
+
+PASO 2: EL PROBLEMA EN PROFUNDIDAD (3 minutos)
+-----------------------------------------------
+[Mostrar slide con estadísticas]
+
+El mercado de locución profesional vale $5.4 mil millones de dólares.
+Está creciendo 45% en los próximos 5 años.
+
+Pero tiene un problema fundamental: está FRAGMENTADO.
+
+Para los CLIENTES:
+- Buscan en plataformas generales donde la locución es solo una categoría más
+- No hay filtros especializados (acento, tono, género, experiencia)
+- Es difícil evaluar la calidad real
+- Los procesos de pago son inseguros
+- No hay garantías de satisfacción
+
+Para los LOCUTORES:
+- Compiten con miles de amateur en plataformas saturadas
+- Sus tarifas se devalúan constantemente
+- Pasan más tiempo buscando trabajo que trabajando
+- No tienen un espacio profesional para mostrar su talento
+- Las comisiones de plataformas son abusivas (30-40%)
+
+[Mostrar caso real]
+María, locutora profesional con 10 años de experiencia, ganaba $15/hora
+en plataformas genéricas. Tras unirse a VoiceLink, su tarifa promedio
+es de $75/hora. Eso es 5X más.
+
+
+PASO 3: LA SOLUCIÓN VOICELINK (4 minutos)
+------------------------------------------
+[Transición a presentación de la plataforma]
+
+VoiceLink es la PRIMERA plataforma 100% especializada en locución profesional.
+
+¿Qué nos hace diferentes?
+
+1. ENFOQUE EXCLUSIVO
+   No somos otra plataforma de freelancers. Solo locución.
+   Esto significa que cada feature está optimizada para este mercado.
+
+2. FILTROS INTELIGENTES
+   Busca por idioma, acento, tono de voz, género, experiencia, industria.
+   Encuentra el match perfecto en minutos, no semanas.
+
+3. PORTFOLIOS PROFESIONALES
+   Cada locutor tiene un portfolio completo con demos categorizados.
+   Escucha exactamente el estilo que necesitas antes de contratar.
+
+4. VERIFICACIÓN RIGUROSA
+   Solo aceptamos el 30% de las solicitudes.
+   Verificamos identidad, calidad de audio y referencias.
+   Solo trabajas con profesionales reales.
+
+5. PAGOS SEGUROS CON GARANTÍA
+   Sistema de depósito en garantía. El dinero se libera solo cuando
+   el cliente aprueba el trabajo. Protección total para ambas partes.
+
+6. COMISIONES JUSTAS
+   12-20% vs 30-40% de otras plataformas.
+   Los locutores ganan más. Los clientes pagan precios justos.
+
+
+PASO 4: DEMO EN VIVO (5-7 minutos)
+-----------------------------------
+[Abrir la plataforma en vivo]
+
+"Ahora les voy a mostrar cómo funciona VoiceLink en tiempo real."
+
+DEMO CLIENTE:
+1. Registrarse/Login
+2. Publicar proyecto: "Necesito locutor para comercial de TV, 30 seg,
+   español neutro, tono cálido y profesional"
+3. Usar filtros avanzados para buscar
+4. Ver perfiles de locutores (rating, demos, experiencia)
+5. Escuchar demos categorizados
+6. Enviar propuesta o invitar a aplicar
+7. Negociar términos en la plataforma
+8. Confirmar acuerdo y depositar pago en garantía
+
+DEMO LOCUTOR:
+1. Ver proyectos disponibles
+2. Aplicar a un proyecto con propuesta personalizada
+3. Subir demo específico para ese proyecto
+4. Dashboard de proyectos activos
+5. Subir archivo final
+6. Ver que el pago se libera automáticamente tras aprobación
+
+[Enfatizar la simplicidad y seguridad del proceso]
+
+
+PASO 5: CASOS DE ÉXITO Y TESTIMONIOS (3 minutos)
+-------------------------------------------------
+[Mostrar testimonios en video o slides con fotos reales]
+
+CASO 1: María Contreras - Locutora (España)
+"En 6 meses en VoiceLink gané más que en 2 años en otras plataformas.
+La calidad de los clientes es excepcional y las negociaciones son justas."
+
+Métricas:
+- Ingresos: +380% en 6 meses
+- Proyectos completados: 47
+- Rating promedio: 4.9/5
+
+CASO 2: Jorge Ramírez - Director Creativo (México)
+"Antes perdíamos 2-3 semanas por proyecto buscando el locutor correcto.
+Con VoiceLink, encontramos 3 opciones perfectas en menos de 2 horas."
+
+Métricas:
+- Tiempo ahorrado: 85%
+- Satisfacción con contrataciones: 96%
+- Ha contratado a 12 locutores diferentes
+
+CASO 3: Podcast 'Historias Reales' - Productora (Argentina)
+"VoiceLink es nuestra única plataforma ahora. La verificación de perfiles
+y el sistema de pagos nos da total tranquilidad."
+
+Métricas:
+- 23 episodios grabados con locutores de VoiceLink
+- 0 problemas de calidad o pagos
+- Ahorro: $4,500 en 6 meses
+
+
+PASO 6: ROADMAP Y VISIÓN (2 minutos)
+-------------------------------------
+[Mostrar slide con roadmap visual]
+
+¿Hacia dónde va VoiceLink?
+
+METAS 2025:
+✓ 10,000+ locutores verificados en 50+ idiomas
+✓ 50,000 proyectos completados exitosamente
+✓ Presencia en 80+ países
+✓ IA de matching avanzada para recomendaciones instantáneas
+
+FUNCIONALIDADES EN DESARROLLO:
+- API para integración con software de edición
+- App móvil nativa (iOS y Android)
+- Sistema de suscripciones para clientes recurrentes
+- Análisis de voz con IA para sugerir mejoras
+- Marketplace de guiones y recursos
+
+VISIÓN A LARGO PLAZO:
+"Ser el estándar global de la industria de locución.
+Cuando alguien necesite un locutor, VoiceLink será su primera opción.
+Cuando un locutor busque proyectos profesionales, VoiceLink será su hogar."
+
+
+PASO 7: LLAMADO A LA ACCIÓN Y Q&A (3-5 minutos)
+------------------------------------------------
+[Slide final con CTAs claros]
+
+"Es momento de unirse a la revolución de la locución profesional."
+
+PARA LOCUTORES:
+→ Regístrate gratis hoy
+→ Completa tu perfil en 15 minutos
+→ Consigue tu primer proyecto en 48 horas
+→ Gana tarifas justas por tu talento
+
+PARA CLIENTES:
+→ Publica tu proyecto gratis
+→ Recibe propuestas en menos de 24 horas
+→ Trabaja con locutores verificados
+→ Paga solo cuando estés 100% satisfecho
+
+[Mostrar código QR y URL: www.voicelink.com]
+
+OFERTA ESPECIAL DE LANZAMIENTO:
+- Primeros 100 registros: 3 meses de plan Profesional GRATIS
+- Código: LAUNCH2024
+
+---
+
+¿Preguntas?
+
+[Preparar respuestas para preguntas frecuentes]:
+- ¿Cómo garantizan la calidad?
+- ¿Qué pasa si no me gusta el trabajo?
+- ¿Cuánto tiempo toma el proceso?
+- ¿Cómo se comparan con la competencia?
+- ¿Ofrecen soporte técnico?
+
+---
+
+CIERRE:
+"Gracias por su tiempo. VoiceLink no es solo una plataforma,
+es una comunidad de profesionales que creen en la calidad,
+la transparencia y el trato justo.
+
+Los invito a ser parte de esta transformación.
+
+¿Listos para conectar voces con oportunidades?"
+
+[Aplausos]
+
+=============================================
+FIN DEL GUION
+
+TIPS PARA LA PRESENTACIÓN:
+- Mantén energía alta pero profesional
+- Usa pausas dramáticas en momentos clave
+- Haz contacto visual con la audiencia
+- Usa gestos para enfatizar puntos importantes
+- Sonríe y muestra pasión por el proyecto
+- Prepara backup en caso de fallas técnicas
+- Ten agua a mano
+- Practica el timing varias veces antes
+- Adapta el tono según la audiencia (inversores, usuarios, prensa)
+`;
+            
+            const blob = new Blob([scriptContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'guion-voicelink.txt';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        });
+        
+        // ========== FAQ ACCORDIONS ==========
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                faqItems.forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+            
+            // Keyboard navigation
+            question.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                }
+            });
+        });
+        
+        // ========== CONTACT FORM VALIDATION ==========
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        function validateForm() {
+            let isValid = true;
+            
+            // Nombre
+            const nombre = document.getElementById('nombre');
+            const nombreGroup = nombre.parentElement;
+            if (nombre.value.trim().length < 2) {
+                nombreGroup.classList.add('error');
+                isValid = false;
+            } else {
+                nombreGroup.classList.remove('error');
+            }
+            
+            // Email
+            const email = document.getElementById('email');
+            const emailGroup = email.parentElement;
+            if (!validateEmail(email.value)) {
+                emailGroup.classList.add('error');
+                isValid = false;
+            } else {
+                emailGroup.classList.remove('error');
+            }
+            
+            // Tipo
+            const tipo = document.getElementById('tipo');
+            const tipoGroup = tipo.parentElement;
+            if (!tipo.value) {
+                tipoGroup.classList.add('error');
+                isValid = false;
+            } else {
+                tipoGroup.classList.remove('error');
+            }
+            
+            // Mensaje
+            const mensaje = document.getElementById('mensaje');
+            const mensajeGroup = mensaje.parentElement;
+            if (mensaje.value.trim().length < 10) {
+                mensajeGroup.classList.add('error');
+                isValid = false;
+            } else {
+                mensajeGroup.classList.remove('error');
+            }
+            
+            return isValid;
+        }
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                // Simulate form submission
+                formSuccess.classList.add('show');
+                contactForm.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formSuccess.classList.remove('show');
+                }, 5000);
+                
+                // Scroll to success message
+                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+        
+        // Real-time validation
+        const formInputs = contactForm.querySelectorAll('input, textarea, select');
+        formInputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if (input.value) {
+                    validateForm();
+                }
+            });
+        });
+        
+        // ========== SMOOTH SCROLL ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
